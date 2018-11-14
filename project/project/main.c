@@ -335,3 +335,33 @@ POLE_STRUKTUR* a_function(int *K, POLE_STRUKTUR **MASSIVE)
     
     return *MASSIVE;
 }
+
+
+void m_function(int *K, POLE_STRUKTUR **MASSIVE)
+{
+    if(MASSIVE!=NULL)
+    {
+        int x=*K;
+        int a;
+        scanf("%d", &a);
+        for (int i=0; i<x; i++)
+        {
+            int b=atoi((*MASSIVE)[i].datum_priestupku);
+            int c=atoi((*MASSIVE)[i].typ_priestupku);
+            if (b<a && c==0)
+            {
+                if(i!=*K-1)
+                {
+                    for (int j=i; j<*K; j++)
+                        (*MASSIVE)[j]=(*MASSIVE)[j+1];
+                }
+                
+                x=x-1;
+                *MASSIVE = (POLE_STRUKTUR *) realloc (*MASSIVE, sizeof(POLE_STRUKTUR)*(x));
+                i--;
+            }
+            
+        }
+    }
+    
+}
