@@ -82,3 +82,21 @@ int main() {
     }
     return 0;
 }
+
+
+//funkcie:
+POLE_STRUKTUR* o_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE)
+{
+    *file = fopen("/Users/olesia/Desktop/FIIT STU/PrPr/project1/priestupky.txt", "r");
+    char *s;
+    s=(char *) malloc (50);
+    int k=0;
+    while(fgets(s, 50, *file))
+    {
+        if ((strchr(s, '\n')) != NULL)
+            k++;
+    }
+    *K=k/8;                                                                       //pocet zaznamov
+
+    return *MASSIVE;
+}
