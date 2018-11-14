@@ -225,3 +225,22 @@ void r_function(int *K, POLE_STRUKTUR **MASSIVE)
     }
 }
 
+
+void p_function(int *K, POLE_STRUKTUR **MASSIVE)
+{
+    if (MASSIVE!=NULL)
+    {
+        for (int i=0; i<*K; i++)
+        {
+            unsigned long n;
+            n=strlen((*MASSIVE)[i].SPZ);
+            char *a;
+            a = (char*) malloc(n);
+            for(int j=0; j<n; j++)
+            {
+                a[j]=(*MASSIVE)[i].SPZ[n-1-j];                                       //prepis SPZ v obratenom poradii
+            }
+        }
+    }
+    
+}
