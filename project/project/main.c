@@ -205,8 +205,22 @@ void r_function(int *K, POLE_STRUKTUR **MASSIVE)
             {
                 int c = atoi((*MASSIVE)[i].typ_priestupku);
                 int d = atoi((*MASSIVE)[i].vyska_pokuty);
-                
+                if (c==1)
+                {
+                    odmena+=d*0.052;
+                }
+                else
+                {
+                    if (c==0)
+                    {
+                        odmena+=d*0.038;
+                    }
+                }
             }
+        }
+        if (odmena!=0)
+        {
+            printf("%.2lf\n", odmena);
         }
     }
 }
