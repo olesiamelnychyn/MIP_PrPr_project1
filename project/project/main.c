@@ -360,8 +360,8 @@ void m_function(int *K, POLE_STRUKTUR **MASSIVE)
                 *MASSIVE = (POLE_STRUKTUR *) realloc (*MASSIVE, sizeof(POLE_STRUKTUR)*(x));
                 i--;
             }
-            
         }
+        if (*K==x) printf("Zaznamy neboli zistene\n");
+        else *K=x;
     }
-    
 }
