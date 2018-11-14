@@ -394,3 +394,13 @@ void s_function(int *K, POLE_STRUKTUR **MASSIVE)
     }
 }
 
+
+void k_function(FILE **file, POLE_STRUKTUR **MASSIVE)
+{
+    if ((*file=fopen("/Users/olesia/Desktop/FIIT STU/PrPr/project1/priestupky.txt", "r")) != NULL)
+    {
+        fclose(*file); //zatvorenie suboru
+    }
+    free(*MASSIVE); //uvolnenie pola
+    exit(EXIT_SUCCESS); //ukoncenie programu
+}
