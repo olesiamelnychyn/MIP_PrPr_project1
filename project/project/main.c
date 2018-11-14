@@ -165,7 +165,7 @@ void v_function(int *K, POLE_STRUKTUR **MASSIVE)
             printf("typ priestupku: %s\n", (*MASSIVE)[i].typ_priestupku);
             printf("vyska pokuty: %s\n", (*MASSIVE)[i].vyska_pokuty);
             printf("datum priestupku: %s\n", (*MASSIVE)[i].datum_priestupku);
-        
+            putchar('\n');                                                       //prazdny riadok medzi zaznamami
         }
     }
 }
