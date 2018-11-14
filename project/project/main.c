@@ -16,6 +16,9 @@ typedef struct
 } POLE_STRUKTUR;
 
 int main() {
-
+    FILE *file;                    //file
+    POLE_STRUKTUR *MASSIVE = NULL; //pole structur
+    int K;                         //pocet zaznzmov
+    char c;                        //znak pre funkcie
     return 0;
 }
