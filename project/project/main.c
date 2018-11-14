@@ -296,6 +296,18 @@ POLE_STRUKTUR* a_function(int *K, POLE_STRUKTUR **MASSIVE)
             }
         }
     }
+    else
+    {
+        *K=1;
+        int a=*K;
+        b=0;
+        *MASSIVE = (POLE_STRUKTUR *) malloc (sizeof(POLE_STRUKTUR)*(a));
+        fgets(&c, 2, stdin); //pre '\n' po 'a'
+        
+        fgets((*MASSIVE)[b].meno_priezvisko, 50, stdin);  //meno priezvisko
+        n=strlen((*MASSIVE)[b].meno_priezvisko);
+        (*MASSIVE)[b].meno_priezvisko[n-1]='\0';
+    }
     
     return *MASSIVE;
     
