@@ -17,14 +17,14 @@ typedef struct
 
 //funkcie:
 POLE_STRUKTUR*  o_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE);
-POLE_STRUKTUR*  a_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE);
+POLE_STRUKTUR*  a_function(int *K, POLE_STRUKTUR **MASSIVE);
 void v_function(int *K, POLE_STRUKTUR **MASSIVE);
 void r_function(int *K, POLE_STRUKTUR **MASSIVE);
 void p_function(int *K, POLE_STRUKTUR **MASSIVE);
 void x_function(int *K, POLE_STRUKTUR **MASSIVE);
 void m_function(int *K, POLE_STRUKTUR **MASSIVE);
 void s_function(int *K, POLE_STRUKTUR **MASSIVE);
-void k_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE);
+void k_function(FILE **file, POLE_STRUKTUR **MASSIVE);
 
 int main() {
     FILE *file;                    //file
@@ -62,7 +62,7 @@ int main() {
             }
             case 'a':
             {
-                MASSIVE = a_function(&K, &file, &MASSIVE);
+                MASSIVE = a_function(&K, &MASSIVE);
                 break;
             }
             case 'm':
@@ -75,7 +75,7 @@ int main() {
                 break;
             case 'k':
             {
-                k_function(&K, &file, &MASSIVE);
+                k_function(&file, &MASSIVE);
                 break;
             }
         }
@@ -244,4 +244,28 @@ void p_function(int *K, POLE_STRUKTUR **MASSIVE)
                 printf("%s %s\n", (*MASSIVE)[i].meno_priezvisko, (*MASSIVE)[i].SPZ);
         }
     }
+}
+
+
+POLE_STRUKTUR* a_function(int *K, POLE_STRUKTUR **MASSIVE)
+{
+    int b = 0;
+    unsigned long n;
+    char c;
+    if(MASSIVE!=NULL)
+    {
+        (*K)++;
+        int a=*K;
+        *MASSIVE = (POLE_STRUKTUR *) realloc (*MASSIVE, sizeof(POLE_STRUKTUR)*(a)); //vytvaranie vacsieho pola
+        char *A;
+        A = (char*) malloc (50);
+        fgets(&c, 2, stdin); //pre '\n' po 'a'
+        fgets(A, 50, stdin); //nacitanie mena
+        n=strlen(A);
+        A[n-1]='\0';
+    }
+    
+    
+    return *MASSIVE;
+    
 }
