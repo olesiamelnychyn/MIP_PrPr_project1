@@ -263,6 +263,16 @@ POLE_STRUKTUR* a_function(int *K, POLE_STRUKTUR **MASSIVE)
         fgets(A, 50, stdin); //nacitanie mena
         n=strlen(A);
         A[n-1]='\0';
+        if (strcmp(A, (*MASSIVE)[0].meno_priezvisko)<0) //porovnanie mien podla abecedy
+        {
+            b=0;
+            for(int i=*K-1; i>0; i--)
+            {
+                (*MASSIVE)[i]=(*MASSIVE)[i-1];
+            }
+            strcpy((*MASSIVE)[b].meno_priezvisko, A);   //meno priezvisko
+            
+        }
     }
     
     
