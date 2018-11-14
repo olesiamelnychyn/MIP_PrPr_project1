@@ -279,7 +279,21 @@ POLE_STRUKTUR* a_function(int *K, POLE_STRUKTUR **MASSIVE)
                 b=*K-1;
                 strcpy((*MASSIVE)[b].meno_priezvisko, A);  //meno priezvisko
             }
-            
+            else
+            {
+                for (int i=0; i<*K-2; i++)
+                {
+                    if (strcmp(A, (*MASSIVE)[i].meno_priezvisko)>0 && strcmp(A, (*MASSIVE)[i+1].meno_priezvisko)<0)
+                    {
+                        b=i+1;
+                        for (int i=*K-1; i>b; i--)
+                        {
+                            (*MASSIVE)[i]=(*MASSIVE)[i-1];
+                        }
+                        strcpy((*MASSIVE)[b].meno_priezvisko, A);  //meno priezvisko
+                    }
+                }
+            }
         }
     }
     
