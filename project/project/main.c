@@ -169,3 +169,20 @@ void v_function(int *K, POLE_STRUKTUR **MASSIVE)
         }
     }
 }
+
+
+void x_function(int *K, POLE_STRUKTUR **MASSIVE)
+{
+    if(MASSIVE!=NULL)
+    {
+        int a;
+        scanf("%d", &a);                      //nacitanie aktualneho datumu
+        a=a/10000;                            //vypocet roku
+        for (int i =0; i<*K; i++)
+        {
+            int b = atoi((*MASSIVE)[i].datum_priestupku);
+            int c = atoi((*MASSIVE)[i].typ_priestupku);
+            
+        }
+    }
+}
