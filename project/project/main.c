@@ -379,7 +379,16 @@ void s_function(int *K, POLE_STRUKTUR **MASSIVE)
             {
                 if ((*MASSIVE)[i].meno_priezvisko[j]!=' ')
                     (*MASSIVE)[i].meno_priezvisko[j]+=n;
-                
+                if ((*MASSIVE)[i].meno_priezvisko[j]>'Z' && (*MASSIVE)[i].meno_priezvisko[j]<'a')
+                {
+                    (*MASSIVE)[i].meno_priezvisko[j]=(*MASSIVE)[i].meno_priezvisko[j]-'Z'+'A'-1;
+                    
+                }
+                else
+                    if ((*MASSIVE)[i].meno_priezvisko[j]>'z')
+                    {
+                        (*MASSIVE)[i].meno_priezvisko[j]=(*MASSIVE)[i].meno_priezvisko[j]-'z'+'a'-1;
+                    }
             }
         }
     }
