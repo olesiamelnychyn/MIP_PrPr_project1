@@ -240,7 +240,8 @@ void p_function(int *K, POLE_STRUKTUR **MASSIVE)
             {
                 a[j]=(*MASSIVE)[i].SPZ[n-1-j];                                       //prepis SPZ v obratenom poradii
             }
+            if (strcmp(a, (*MASSIVE)[i].SPZ)==0)                                     //zistinie ci je SPZ palindrom
+                printf("%s %s\n", (*MASSIVE)[i].meno_priezvisko, (*MASSIVE)[i].SPZ);
         }
     }
-    
 }
