@@ -187,3 +187,27 @@ void x_function(int *K, POLE_STRUKTUR **MASSIVE)
         }
     }
 }
+
+
+void r_function(int *K, POLE_STRUKTUR **MASSIVE)
+{
+    if ((*MASSIVE)!=NULL)
+    {
+        double odmena=0;
+        int a;
+        scanf("%d", &a);                                       //nacitavanie aktualneho datumu
+        a=a/100;                                               //vypocet mesiaca
+        for (int i =0; i<*K; i++)
+        {
+            int b = atoi((*MASSIVE)[i].datum_priestupku);
+            b=b/100;                                          //vypocet mesiaca priestupku
+            if (a==b)
+            {
+                int c = atoi((*MASSIVE)[i].typ_priestupku);
+                int d = atoi((*MASSIVE)[i].vyska_pokuty);
+                
+            }
+        }
+    }
+}
+
