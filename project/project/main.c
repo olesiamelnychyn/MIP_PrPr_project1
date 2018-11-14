@@ -96,7 +96,53 @@ POLE_STRUKTUR* o_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE)
         if ((strchr(s, '\n')) != NULL)
             k++;
     }
-    *K=k/8;                                                                       //pocet zaznamov
+    *K=k/8;        //pocet zaznamov
 
+    *file = fopen("/Users/olesia/Desktop/FIIT STU/PrPr/project1/priestupky.txt", "r");
+    
+    if (*MASSIVE != NULL)
+    {
+        free(*MASSIVE);                       //dealokovanie pola, ak ono uz bolo predtym vytvorene
+    }
+    
+    char *c;
+    c = (char*) malloc(50);
+    int a = *K;
+    
+    *MASSIVE = (POLE_STRUKTUR*) malloc (sizeof(POLE_STRUKTUR)*(a)); //vytvorenie dynamickeho pola structur
+    for (int i=0; i<*K; i++)
+    {
+        unsigned long n;
+        //nacitavanie zaznamov zo subora
+        fgets((*MASSIVE)[i].meno_priezvisko, 50, *file); //meno priezvisko
+        n=strlen((*MASSIVE)[i].meno_priezvisko);
+        (*MASSIVE)[i].meno_priezvisko[n-1]='\0';
+        
+        fgets((*MASSIVE)[i].pohlavie, 50, *file);     // pohlavie
+        n=strlen((*MASSIVE)[i].pohlavie);
+        (*MASSIVE)[i].pohlavie[n-1]='\0';
+        
+        fgets((*MASSIVE)[i].rok_narodenia, 50, *file);    //rok narodenia
+        n=strlen((*MASSIVE)[i].rok_narodenia);
+        (*MASSIVE)[i].rok_narodenia[n-1]='\0';
+        
+        fgets((*MASSIVE)[i].SPZ, 50, *file);               //SPZ
+        n=strlen((*MASSIVE)[i].SPZ);
+        (*MASSIVE)[i].SPZ[n-1]='\0';
+        
+        fgets((*MASSIVE)[i].typ_priestupku, 50, *file);     //typ priestupku
+        n=strlen((*MASSIVE)[i].typ_priestupku);
+        (*MASSIVE)[i].typ_priestupku[n-1]='\0';
+        
+        fgets((*MASSIVE)[i].vyska_pokuty, 50, *file);      //vyska pokuty
+        n=strlen((*MASSIVE)[i].vyska_pokuty);
+        (*MASSIVE)[i].vyska_pokuty[n-1]='\0';
+        
+        fgets((*MASSIVE)[i].datum_priestupku, 50, *file);     //datum priestupku
+        n=strlen((*MASSIVE)[i].datum_priestupku);
+        (*MASSIVE)[i].datum_priestupku[n-1]='\0';
+        
+        fgets(c, 50, *file);                                   //pre prazdny riadok medzi zaznamami
+    }                                                 //prekopirovanie vsetkych udajov do pola structur podla polozek
     return *MASSIVE;
 }
