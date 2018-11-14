@@ -16,15 +16,15 @@ typedef struct
 } POLE_STRUKTUR;
 
 //funkcie:
-void o_function(void);
-void a_function(void);
-void v_function(void);
-void r_function(void);
-void p_function(void);
-void x_function(void);
-void m_function(void);
-void s_function(void);
-void k_function(void);
+POLE_STRUKTUR*  o_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE);
+POLE_STRUKTUR*  a_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE);
+void v_function(int *K, POLE_STRUKTUR **MASSIVE);
+void r_function(int *K, POLE_STRUKTUR **MASSIVE);
+void p_function(int *K, POLE_STRUKTUR **MASSIVE);
+void x_function(int *K, POLE_STRUKTUR **MASSIVE);
+void m_function(int *K, POLE_STRUKTUR **MASSIVE);
+void s_function(int *K, POLE_STRUKTUR **MASSIVE);
+void k_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE);
 
 int main() {
     FILE *file;                    //file
@@ -37,45 +37,45 @@ int main() {
         {
             case 'o':
             {
-                o_function();
+                MASSIVE = o_function(&K, &file, &MASSIVE);
                 break;
             }
             case 'v':
             {
-                v_function();
+                v_function(&K, &MASSIVE);
                 break;
             }
             case 'x':
             {
-                x_function();
+                x_function(&K, &MASSIVE);
                 break;
             }
             case 'r':
             {
-                r_function();
+                r_function(&K, &MASSIVE);
                 break;
             }
             case 'p':
             {
-                p_function();
+                p_function(&K, &MASSIVE);
                 break;
             }
             case 'a':
             {
-                a_function();
+                MASSIVE = a_function(&K, &file, &MASSIVE);
                 break;
             }
             case 'm':
             {
-                m_function();
+                m_function(&K, &MASSIVE);
                 break;
             }
             case 's':
-                s_function();
+                s_function(&K, &MASSIVE);
                 break;
             case 'k':
             {
-                k_function();
+                k_function(&K, &file, &MASSIVE);
                 break;
             }
         }
