@@ -365,3 +365,23 @@ void m_function(int *K, POLE_STRUKTUR **MASSIVE)
         else *K=x;
     }
 }
+
+void s_function(int *K, POLE_STRUKTUR **MASSIVE)
+{
+    if (MASSIVE!=NULL)
+    {
+        int n;
+        scanf("%d", &n);
+        for (int i=0; i<*K; i++)
+        {
+            unsigned long a=strlen((*MASSIVE)[i].meno_priezvisko);
+            for (int j=0; j<a; j++)
+            {
+                if ((*MASSIVE)[i].meno_priezvisko[j]!=' ')
+                    (*MASSIVE)[i].meno_priezvisko[j]+=n;
+                
+            }
+        }
+    }
+}
+
