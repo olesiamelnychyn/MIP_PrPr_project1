@@ -150,3 +150,22 @@ POLE_STRUKTUR* o_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE)
     
     return *MASSIVE;
 }
+
+
+void v_function(int *K, POLE_STRUKTUR **MASSIVE)
+{
+    if (MASSIVE!=NULL)
+    {
+        for (int i=0; i<*K; i++)
+        {
+            printf("meno priezvisko: %s\n", (*MASSIVE)[i].meno_priezvisko);      //vypis vsetkych zazanamov
+            printf("pohlavie: %s\n", (*MASSIVE)[i].pohlavie);
+            printf("rok narodenia: %s\n", (*MASSIVE)[i].rok_narodenia);
+            printf("SPZ: %s\n", (*MASSIVE)[i].SPZ);
+            printf("typ priestupku: %s\n", (*MASSIVE)[i].typ_priestupku);
+            printf("vyska pokuty: %s\n", (*MASSIVE)[i].vyska_pokuty);
+            printf("datum priestupku: %s\n", (*MASSIVE)[i].datum_priestupku);
+        
+        }
+    }
+}
