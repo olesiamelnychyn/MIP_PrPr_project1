@@ -334,5 +334,4 @@ POLE_STRUKTUR* a_function(int *K, POLE_STRUKTUR **MASSIVE)
     (*MASSIVE)[b].datum_priestupku[n-1]='\0';
     
     return *MASSIVE;
-    
 }
