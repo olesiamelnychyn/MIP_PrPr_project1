@@ -144,5 +144,9 @@ POLE_STRUKTUR* o_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE)
         
         fgets(c, 50, *file);                                   //pre prazdny riadok medzi zaznamami
     }                                                 //prekopirovanie vsetkych udajov do pola structur podla polozek
+    
+    if (MASSIVE==NULL)
+        printf("Pole nie je naplnené");    //v pripade neuspesnej alokacie
+    
     return *MASSIVE;
 }
