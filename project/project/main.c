@@ -308,6 +308,30 @@ POLE_STRUKTUR* a_function(int *K, POLE_STRUKTUR **MASSIVE)
         n=strlen((*MASSIVE)[b].meno_priezvisko);
         (*MASSIVE)[b].meno_priezvisko[n-1]='\0';
     }
+    //nacitavanie udajov
+    fgets((*MASSIVE)[b].pohlavie, 50, stdin);    //pohlavie
+    n=strlen((*MASSIVE)[b].pohlavie);
+    (*MASSIVE)[b].pohlavie[n-1]='\0';
+    
+    fgets((*MASSIVE)[b].rok_narodenia, 50, stdin);   //rok narodenia
+    n=strlen((*MASSIVE)[b].rok_narodenia);
+    (*MASSIVE)[b].rok_narodenia[n-1]='\0';
+    
+    fgets((*MASSIVE)[b].SPZ, 50, stdin);   //SPZ
+    n=strlen((*MASSIVE)[b].SPZ);
+    (*MASSIVE)[b].SPZ[n-1]='\0';
+    
+    fgets((*MASSIVE)[b].typ_priestupku, 50, stdin);   //typ priestupku
+    n=strlen((*MASSIVE)[b].typ_priestupku);
+    (*MASSIVE)[b].typ_priestupku[n-1]='\0';
+    
+    fgets((*MASSIVE)[b].vyska_pokuty, 50, stdin);    //vyska pokuty
+    n=strlen((*MASSIVE)[b].vyska_pokuty);
+    (*MASSIVE)[b].vyska_pokuty[n-1]='\0';
+    
+    fgets((*MASSIVE)[b].datum_priestupku, 50, stdin);   //datum priestupku
+    n=strlen((*MASSIVE)[b].datum_priestupku);
+    (*MASSIVE)[b].datum_priestupku[n-1]='\0';
     
     return *MASSIVE;
     
