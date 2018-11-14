@@ -1,7 +1,9 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+
+
 
 //struktura:
 typedef struct
@@ -15,6 +17,9 @@ typedef struct
     char datum_priestupku[50];
 } POLE_STRUKTUR;
 
+
+
+
 //funkcie:
 POLE_STRUKTUR*  o_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE);
 POLE_STRUKTUR*  a_function(int *K, POLE_STRUKTUR **MASSIVE);
@@ -26,6 +31,10 @@ void m_function(int *K, POLE_STRUKTUR **MASSIVE);
 void s_function(int *K, POLE_STRUKTUR **MASSIVE);
 void k_function(FILE **file, POLE_STRUKTUR **MASSIVE);
 
+
+
+
+//main:
 int main() {
     FILE *file;                    //file
     POLE_STRUKTUR *MASSIVE = NULL; //pole structur
@@ -84,6 +93,8 @@ int main() {
 }
 
 
+
+
 //funkcie:
 POLE_STRUKTUR* o_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE)
 {
@@ -96,7 +107,7 @@ POLE_STRUKTUR* o_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE)
         if ((strchr(s, '\n')) != NULL)
             k++;
     }
-    *K=k/8;        //pocet zaznamov
+    *K=k/8;                                    //pocet zaznamov
 
     *file = fopen("/Users/olesia/Desktop/FIIT STU/PrPr/project1/priestupky.txt", "r");
     
@@ -114,39 +125,39 @@ POLE_STRUKTUR* o_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE)
     {
         unsigned long n;
         //nacitavanie zaznamov zo subora
-        fgets((*MASSIVE)[i].meno_priezvisko, 50, *file); //meno priezvisko
+        fgets((*MASSIVE)[i].meno_priezvisko, 50, *file);      //meno priezvisko
         n=strlen((*MASSIVE)[i].meno_priezvisko);
         (*MASSIVE)[i].meno_priezvisko[n-1]='\0';
         
-        fgets((*MASSIVE)[i].pohlavie, 50, *file);     // pohlavie
+        fgets((*MASSIVE)[i].pohlavie, 50, *file);             // pohlavie
         n=strlen((*MASSIVE)[i].pohlavie);
         (*MASSIVE)[i].pohlavie[n-1]='\0';
         
-        fgets((*MASSIVE)[i].rok_narodenia, 50, *file);    //rok narodenia
+        fgets((*MASSIVE)[i].rok_narodenia, 50, *file);        //rok narodenia
         n=strlen((*MASSIVE)[i].rok_narodenia);
         (*MASSIVE)[i].rok_narodenia[n-1]='\0';
         
-        fgets((*MASSIVE)[i].SPZ, 50, *file);               //SPZ
+        fgets((*MASSIVE)[i].SPZ, 50, *file);                  //SPZ
         n=strlen((*MASSIVE)[i].SPZ);
         (*MASSIVE)[i].SPZ[n-1]='\0';
         
-        fgets((*MASSIVE)[i].typ_priestupku, 50, *file);     //typ priestupku
+        fgets((*MASSIVE)[i].typ_priestupku, 50, *file);       //typ priestupku
         n=strlen((*MASSIVE)[i].typ_priestupku);
         (*MASSIVE)[i].typ_priestupku[n-1]='\0';
         
-        fgets((*MASSIVE)[i].vyska_pokuty, 50, *file);      //vyska pokuty
+        fgets((*MASSIVE)[i].vyska_pokuty, 50, *file);        //vyska pokuty
         n=strlen((*MASSIVE)[i].vyska_pokuty);
         (*MASSIVE)[i].vyska_pokuty[n-1]='\0';
         
-        fgets((*MASSIVE)[i].datum_priestupku, 50, *file);     //datum priestupku
+        fgets((*MASSIVE)[i].datum_priestupku, 50, *file);    //datum priestupku
         n=strlen((*MASSIVE)[i].datum_priestupku);
         (*MASSIVE)[i].datum_priestupku[n-1]='\0';
         
-        fgets(c, 50, *file);                                   //pre prazdny riadok medzi zaznamami
-    }                                                 //prekopirovanie vsetkych udajov do pola structur podla polozek
+        fgets(c, 50, *file);                                //pre prazdny riadok medzi zaznamami
+    }                                                       //prekopirovanie vsetkych udajov do pola structur podla polozek
     
     if (MASSIVE==NULL)
-        printf("Pole nie je naplnené");    //v pripade neuspesnej alokacie
+        printf("Pole nie je naplnené");                     //v pripade neuspesnej alokacie
     
     return *MASSIVE;
 }
@@ -259,11 +270,11 @@ POLE_STRUKTUR* a_function(int *K, POLE_STRUKTUR **MASSIVE)
         *MASSIVE = (POLE_STRUKTUR *) realloc (*MASSIVE, sizeof(POLE_STRUKTUR)*(a)); //vytvaranie vacsieho pola
         char *A;
         A = (char*) malloc (50);
-        fgets(&c, 2, stdin); //pre '\n' po 'a'
-        fgets(A, 50, stdin); //nacitanie mena
+        fgets(&c, 2, stdin);                    //pre '\n' po 'a'
+        fgets(A, 50, stdin);                    //nacitanie mena
         n=strlen(A);
         A[n-1]='\0';
-        if (strcmp(A, (*MASSIVE)[0].meno_priezvisko)<0) //porovnanie mien podla abecedy
+        if (strcmp(A, (*MASSIVE)[0].meno_priezvisko)<0)               //porovnanie mien podla abecedy
         {
             b=0;
             for(int i=*K-1; i>0; i--)
@@ -309,27 +320,27 @@ POLE_STRUKTUR* a_function(int *K, POLE_STRUKTUR **MASSIVE)
         (*MASSIVE)[b].meno_priezvisko[n-1]='\0';
     }
     //nacitavanie udajov
-    fgets((*MASSIVE)[b].pohlavie, 50, stdin);    //pohlavie
+    fgets((*MASSIVE)[b].pohlavie, 50, stdin);                            //pohlavie
     n=strlen((*MASSIVE)[b].pohlavie);
     (*MASSIVE)[b].pohlavie[n-1]='\0';
     
-    fgets((*MASSIVE)[b].rok_narodenia, 50, stdin);   //rok narodenia
+    fgets((*MASSIVE)[b].rok_narodenia, 50, stdin);                       //rok narodenia
     n=strlen((*MASSIVE)[b].rok_narodenia);
     (*MASSIVE)[b].rok_narodenia[n-1]='\0';
     
-    fgets((*MASSIVE)[b].SPZ, 50, stdin);   //SPZ
+    fgets((*MASSIVE)[b].SPZ, 50, stdin);                                 //SPZ
     n=strlen((*MASSIVE)[b].SPZ);
     (*MASSIVE)[b].SPZ[n-1]='\0';
     
-    fgets((*MASSIVE)[b].typ_priestupku, 50, stdin);   //typ priestupku
+    fgets((*MASSIVE)[b].typ_priestupku, 50, stdin);                       //typ priestupku
     n=strlen((*MASSIVE)[b].typ_priestupku);
     (*MASSIVE)[b].typ_priestupku[n-1]='\0';
     
-    fgets((*MASSIVE)[b].vyska_pokuty, 50, stdin);    //vyska pokuty
+    fgets((*MASSIVE)[b].vyska_pokuty, 50, stdin);                         //vyska pokuty
     n=strlen((*MASSIVE)[b].vyska_pokuty);
     (*MASSIVE)[b].vyska_pokuty[n-1]='\0';
     
-    fgets((*MASSIVE)[b].datum_priestupku, 50, stdin);   //datum priestupku
+    fgets((*MASSIVE)[b].datum_priestupku, 50, stdin);                     //datum priestupku
     n=strlen((*MASSIVE)[b].datum_priestupku);
     (*MASSIVE)[b].datum_priestupku[n-1]='\0';
     
@@ -352,19 +363,20 @@ void m_function(int *K, POLE_STRUKTUR **MASSIVE)
             {
                 if(i!=*K-1)
                 {
-                    for (int j=i; j<*K; j++)
+                    for (int j=i; j<*K; j++)                               //zmena zaznamov v poli structur
                         (*MASSIVE)[j]=(*MASSIVE)[j+1];
                 }
                 
                 x=x-1;
-                *MASSIVE = (POLE_STRUKTUR *) realloc (*MASSIVE, sizeof(POLE_STRUKTUR)*(x));
+                *MASSIVE = (POLE_STRUKTUR *) realloc (*MASSIVE, sizeof(POLE_STRUKTUR)*(x));    //zmena velkosti pola
                 i--;
             }
         }
-        if (*K==x) printf("Zaznamy neboli zistene\n");
+        if (*K==x) printf("Zaznamy neboli zistene\n");        //ked neexistuju zaznami do aktualneho datumu a z odnatiim VP
         else *K=x;
     }
 }
+
 
 void s_function(int *K, POLE_STRUKTUR **MASSIVE)
 {
@@ -377,18 +389,20 @@ void s_function(int *K, POLE_STRUKTUR **MASSIVE)
             unsigned long a=strlen((*MASSIVE)[i].meno_priezvisko);
             for (int j=0; j<a; j++)
             {
-                if ((*MASSIVE)[i].meno_priezvisko[j]!=' ')
+                if ((*MASSIVE)[i].meno_priezvisko[j]!=' ')                                          //kodovanie, posun o n
                     (*MASSIVE)[i].meno_priezvisko[j]+=n;
-                if ((*MASSIVE)[i].meno_priezvisko[j]>'Z' && (*MASSIVE)[i].meno_priezvisko[j]<'a')
+                if ((*MASSIVE)[i].meno_priezvisko[j]>'Z' && (*MASSIVE)[i].meno_priezvisko[j]<'a')   //pripad ked  'Z' < pismeno < 'a'
                 {
                     (*MASSIVE)[i].meno_priezvisko[j]=(*MASSIVE)[i].meno_priezvisko[j]-'Z'+'A'-1;
                     
                 }
                 else
-                    if ((*MASSIVE)[i].meno_priezvisko[j]>'z')
+                {
+                    if ((*MASSIVE)[i].meno_priezvisko[j]>'z')                                       //pripad ked 'z' < pismeno
                     {
                         (*MASSIVE)[i].meno_priezvisko[j]=(*MASSIVE)[i].meno_priezvisko[j]-'z'+'a'-1;
                     }
+                }
             }
         }
     }
@@ -399,8 +413,8 @@ void k_function(FILE **file, POLE_STRUKTUR **MASSIVE)
 {
     if ((*file=fopen("/Users/olesia/Desktop/FIIT STU/PrPr/project1/priestupky.txt", "r")) != NULL)
     {
-        fclose(*file); //zatvorenie suboru
+        fclose(*file);       //zatvorenie suboru
     }
-    free(*MASSIVE); //uvolnenie pola
-    exit(EXIT_SUCCESS); //ukoncenie programu
+    free(*MASSIVE);          //uvolnenie pola
+    exit(EXIT_SUCCESS);      //ukoncenie programu
 }
