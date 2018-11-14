@@ -182,7 +182,8 @@ void x_function(int *K, POLE_STRUKTUR **MASSIVE)
         {
             int b = atoi((*MASSIVE)[i].datum_priestupku);
             int c = atoi((*MASSIVE)[i].typ_priestupku);
-            
+            if ((b/10000)==a && c==0)
+                printf("meno priezvisko: %s\nSPZ: %s\ndatum priestupku: %s\n\n", (*MASSIVE)[i].meno_priezvisko, (*MASSIVE)[i].SPZ, (*MASSIVE)[i].datum_priestupku);
         }
     }
 }
