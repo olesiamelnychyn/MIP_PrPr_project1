@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "/Users/olesia/Desktop/MIP_PrPr_project1/project/project/Header.h"
 
 
 
