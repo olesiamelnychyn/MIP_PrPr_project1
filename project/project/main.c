@@ -27,6 +27,7 @@ void p_function(int *K, POLE_STRUKTUR **MASSIVE);
 void x_function(int *K, POLE_STRUKTUR **MASSIVE);
 void m_function(int *K, POLE_STRUKTUR **MASSIVE);
 void s_function(int *K, POLE_STRUKTUR **MASSIVE);
+void l_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE);
 void k_function(FILE **file, POLE_STRUKTUR **MASSIVE);
 
 
@@ -78,8 +79,15 @@ int main() {
                 break;
             }
             case 's':
+            {
                 s_function(&K, &MASSIVE);
                 break;
+            }
+            case 'l':
+            {
+                l_function(&K, &file, &MASSIVE);
+                break;
+            }
             case 'k':
             {
                 k_function(&file, &MASSIVE);
@@ -96,7 +104,7 @@ int main() {
 //funkcie:
 POLE_STRUKTUR* o_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE)
 {
-    *file = fopen("/Users/olesia/Desktop/FIIT STU/PrPr/project1/priestupky.txt", "r");
+    *file = fopen("/Users/olesia/Desktop/MIP_PrPr_project1/project/priestupky.txt", "r");
     char *s;
     s=(char *) malloc (50);
     int k=0;
@@ -107,7 +115,7 @@ POLE_STRUKTUR* o_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE)
     }
     *K=k/8;                                    //pocet zaznamov
 
-    *file = fopen("/Users/olesia/Desktop/FIIT STU/PrPr/project1/priestupky.txt", "r");
+    *file = fopen("/Users/olesia/Desktop/MIP_PrPr_project1/project/priestupky.txt", "r");
     
     if (*MASSIVE != NULL)
     {
@@ -407,9 +415,26 @@ void s_function(int *K, POLE_STRUKTUR **MASSIVE)
 }
 
 
+void l_function(int *K, FILE **file, POLE_STRUKTUR **MASSIVE)
+{
+    *file = fopen("/Users/olesia/Desktop/MIP_PrPr_project1/project/priestupky.txt", "w");
+    for( int i=0; i<*K; i++)
+    {
+        fprintf(*file, "%s\n", (*MASSIVE)[i].meno_priezvisko);
+        fprintf(*file, "%s\n", (*MASSIVE)[i].pohlavie);
+        fprintf(*file, "%s\n", (*MASSIVE)[i].rok_narodenia);
+        fprintf(*file, "%s\n", (*MASSIVE)[i].SPZ);
+        fprintf(*file, "%s\n", (*MASSIVE)[i].typ_priestupku);
+        fprintf(*file, "%s\n", (*MASSIVE)[i].vyska_pokuty);
+        fprintf(*file, "%s\n", (*MASSIVE)[i].datum_priestupku);
+        fputc('\n', *file);
+    }
+    fclose(*file);
+}
+
 void k_function(FILE **file, POLE_STRUKTUR **MASSIVE)
 {
-    if ((*file=fopen("/Users/olesia/Desktop/FIIT STU/PrPr/project1/priestupky.txt", "r")) != NULL)
+    if ((*file=fopen("/Users/olesia/Desktop/MIP_PrPr_project1/project/priestupky.txt", "r")) != NULL)
     {
         fclose(*file);       //zatvorenie suboru
     }
