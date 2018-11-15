@@ -26,6 +26,7 @@
 		F645528D219C638C006DED36 /* project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = project; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6455290219C638C006DED36 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		F6455297219C8266006DED36 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		F6455298219C9B33006DED36 /* priestupky.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = priestupky.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		F645528F219C638C006DED36 /* project */ = {
 			isa = PBXGroup;
 			children = (
+				F6455298219C9B33006DED36 /* priestupky.txt */,
 				F6455297219C8266006DED36 /* Header.h */,
 				F6455290219C638C006DED36 /* main.c */,
 			);
