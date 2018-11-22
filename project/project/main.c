@@ -1,4 +1,4 @@
-#include "/Users/olesia/Desktop/FIIT STU/MIP/MIP_PrPr_project1/project/project/Header.h"
+#include "/Users/olesia/Desktop/FIIT STU/MIP/5 zadanie/MIP_PrPr_project1/project/project/Header.h"
 
 
 //struktura:
@@ -19,6 +19,7 @@ typedef struct
 //funkcie:
 POLE_STRUKTUR*  o_function(int *pocet_zaznamov, FILE **file, POLE_STRUKTUR **MASSIVE);
 POLE_STRUKTUR*  a_function(int *pocet_zaznamov, POLE_STRUKTUR **MASSIVE);
+void count_records(FILE **file, int **pocet_zaznamov);
 void v_function(int *pocet_zaznamov, POLE_STRUKTUR **MASSIVE);
 void r_function(int *pocet_zaznamov, POLE_STRUKTUR **MASSIVE);
 void p_function(int *pocet_zaznamov, POLE_STRUKTUR **MASSIVE);
@@ -102,22 +103,9 @@ int main() {
 //funkcie:
 POLE_STRUKTUR* o_function(int *pocet_zaznamov, FILE **file, POLE_STRUKTUR **MASSIVE)
 {
-    *file = fopen("/Users/olesia/Desktop/FIIT STU/MIP/MIP_PrPr_project1/project/priestupky.txt", "r");
-    
-    char *riadok_subora;
-    riadok_subora = (char *) malloc (50);
-    
-    int pocet_riadkov = 0;
-    
-    while (fgets ( riadok_subora, 50, *file ) )
-    {
-        if ( ( strchr ( riadok_subora, '\n' ) ) != NULL )
-            pocet_riadkov++;
-    }
-    
-    *pocet_zaznamov = pocet_riadkov/8;                                              //pocet zaznamov
+    count_records(&file, &pocet_zaznamov);  // zistinie poctu zaznamov
 
-    *file = fopen("/Users/olesia/Desktop/FIIT STU/MIP/MIP_PrPr_project1/project/priestupky.txt", "r");
+    *file = fopen("/Users/olesia/Desktop/FIIT STU/MIP/5 zadanie/MIP_PrPr_project1/project/priestupky.txt", "r");
     
     if (*MASSIVE != NULL)
     {
@@ -444,7 +432,7 @@ void s_function(int *pocet_zaznamov, POLE_STRUKTUR **MASSIVE)
 
 void l_function(int *pocet_zaznamov, FILE **file, POLE_STRUKTUR **MASSIVE)
 {
-    *file = fopen("/Users/olesia/Desktop/FIIT STU/MIP/MIP_PrPr_project1/project/priestupky.txt", "w");   //otvoranie suboru pre prepisanie
+    *file = fopen("/Users/olesia/Desktop/FIIT STU/MIP/5 zadanie/MIP_PrPr_project1/project/priestupky.txt", "w");   //otvoranie suboru pre prepisanie
     
     for( int cislo_zaznamu = 0; cislo_zaznamu < *pocet_zaznamov; cislo_zaznamu++)
     {
@@ -462,10 +450,31 @@ void l_function(int *pocet_zaznamov, FILE **file, POLE_STRUKTUR **MASSIVE)
 
 void k_function(FILE **file, POLE_STRUKTUR **MASSIVE)
 {
-    if ((*file=fopen("/Users/olesia/Desktop/FIIT STU/MIP/MIP_PrPr_project1/project/priestupky.txt", "r")) != NULL)
+    if ((*file=fopen("/Users/olesia/Desktop/FIIT STU/MIP/5 zadanie/MIP_PrPr_project1/project/priestupky.txt", "r")) != NULL)
     {
         fclose(*file);       //zatvorenie suboru
     }
     free(*MASSIVE);          //uvolnenie pola
     exit(EXIT_SUCCESS);      //ukoncenie programu
+}
+
+
+
+
+void count_records(FILE **file, int **pocet_zaznamov )
+{
+    **file = *fopen("/Users/olesia/Desktop/FIIT STU/MIP/5 zadanie/MIP_PrPr_project1/project/priestupky.txt", "r");
+    
+    char *riadok_subora;
+    riadok_subora = (char *) malloc (50);
+    
+    int pocet_riadkov = 0;
+    
+    while (fgets ( riadok_subora, 50, *file ) )
+    {
+        if ( ( strchr ( riadok_subora, '\n' ) ) != NULL )
+            pocet_riadkov++;
+    }
+    
+    **pocet_zaznamov = pocet_riadkov/8;
 }
